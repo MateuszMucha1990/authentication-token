@@ -83,13 +83,13 @@ router.post('/login', (req,res,next) =>{
 })
 
 //Logout
-router.post('/login', function(req, res, next) {
+router.post('/logout', function(req, res, next) {
+    console.log(req.flash);
     req.logout(function(err) {
         if (err) { return next(err); }
-        res.redirect('/users/login');
         req.flash('success_msg', 'Zostales wylogowany')
+        res.redirect('/users/login');
     });
   });
-
 
 module.exports = router

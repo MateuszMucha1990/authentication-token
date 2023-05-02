@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const {ensureAuthenticated} = require('../config/auth')
 
 //Strona glowna
 router.get('/', (req,res) =>
@@ -7,8 +8,8 @@ router.get('/', (req,res) =>
 );
 
 //dashboard
-router.get('/dashboard', (req,res) =>
+router.get('/dashboard',(req,res) =>
     res.render('dashboard')
-);
-
+    );
+  
 module.exports = router;
